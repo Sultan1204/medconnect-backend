@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-116f1a48563c9cddc3674b6604c260e9361834db41821a3e184df0e0175a8175-8.3.32";s:4:"data";a:3:{s:7:"classes";a:1:{s:74:"pragmarx\google2fa\exceptions\incompatiblewithgoogleauthenticatorexception";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

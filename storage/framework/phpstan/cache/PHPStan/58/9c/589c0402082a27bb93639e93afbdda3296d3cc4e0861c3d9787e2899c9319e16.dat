@@ -1,0 +1,39 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:83:"v2-a07ed6698c282b467de319da5acdcb36ed7cbec29f6ce2644cadfff022132978-8.3.32-6.73.0.6";s:4:"data";a:22:{s:13:"locatedSource";a:2:{s:5:"class";s:60:"PHPStan\BetterReflection\SourceLocator\Located\LocatedSource";s:4:"data";a:2:{s:4:"name";s:36:"Illuminate\Support\Facades\Broadcast";s:8:"filename";s:124:"C:/Users/Sultan/Desktop/MedProject/backend/vendor/composer/../laravel/framework/src/Illuminate/Support/Facades/Broadcast.php";}}s:9:"namespace";s:26:"Illuminate\Support\Facades";s:4:"name";s:36:"Illuminate\Support\Facades\Broadcast";s:9:"shortName";s:9:"Broadcast";s:11:"isInterface";b:0;s:7:"isTrait";b:0;s:6:"isEnum";b:0;s:12:"isBackedEnum";b:0;s:9:"modifiers";i:0;s:10:"docComment";s:2526:"/**
+ * @method static void routes(array|null $attributes = null)
+ * @method static void userRoutes(array|null $attributes = null)
+ * @method static void channelRoutes(array|null $attributes = null)
+ * @method static string|null socket(\Illuminate\Http\Request|null $request = null)
+ * @method static \Illuminate\Broadcasting\AnonymousEvent on(\Illuminate\Broadcasting\Channel|array|string $channels)
+ * @method static \Illuminate\Broadcasting\AnonymousEvent private(string $channel)
+ * @method static \Illuminate\Broadcasting\AnonymousEvent presence(string $channel)
+ * @method static \Illuminate\Broadcasting\PendingBroadcast event(mixed $event = null)
+ * @method static void queue(mixed $event)
+ * @method static mixed connection(\UnitEnum|string|null $name = null)
+ * @method static mixed driver(\UnitEnum|string|null $name = null)
+ * @method static \Pusher\Pusher pusher(array $config)
+ * @method static \Ably\AblyRest ably(array $config)
+ * @method static string getDefaultDriver()
+ * @method static void setDefaultDriver(\UnitEnum|string $name)
+ * @method static void purge(\UnitEnum|string|null $name = null)
+ * @method static \Illuminate\Broadcasting\BroadcastManager extend(string $driver, \Closure $callback)
+ * @method static \Illuminate\Contracts\Foundation\Application getApplication()
+ * @method static \Illuminate\Broadcasting\BroadcastManager setApplication(\Illuminate\Contracts\Foundation\Application $app)
+ * @method static \Illuminate\Broadcasting\BroadcastManager forgetDrivers()
+ * @method static \Symfony\Component\Mercure\HubInterface mercure(array $config)
+ * @method static string|null resolveConnectionFromQueueRoute(object $queueable)
+ * @method static string|null resolveQueueFromQueueRoute(object $queueable)
+ * @method static mixed auth(\Illuminate\Http\Request $request)
+ * @method static mixed validAuthenticationResponse(\Illuminate\Http\Request $request, mixed $result)
+ * @method static void broadcast(array $channels, string $event, array $payload = [])
+ * @method static array|null resolveAuthenticatedUser(\Illuminate\Http\Request $request)
+ * @method static void resolveAuthenticatedUserUsing(\Closure $callback)
+ * @method static \Illuminate\Broadcasting\Broadcasters\Broadcaster channel(\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|string $channel, callable|string $callback, array $options = [])
+ * @method static \Illuminate\Support\Collection getChannels()
+ *
+ * @see \Illuminate\Broadcasting\BroadcastManager
+ * @see \Illuminate\Broadcasting\Broadcasters\Broadcaster
+ */";s:10:"attributes";a:0:{}s:9:"startLine";i:42;s:7:"endLine";i:53;s:11:"startColumn";i:1;s:9:"endColumn";i:1;s:15:"parentClassName";s:33:"Illuminate\Support\Facades\Facade";s:20:"implementsClassNames";a:0:{}s:15:"traitClassNames";a:0:{}s:18:"immediateConstants";a:0:{}s:19:"immediateProperties";a:0:{}s:16:"immediateMethods";a:1:{s:17:"getFacadeAccessor";a:20:{s:4:"name";s:17:"getFacadeAccessor";s:10:"parameters";a:0:{}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:73:"/**
+ * Get the registered name of the component.
+ *
+ * @return string
+ */";s:9:"startLine";i:49;s:7:"endLine";i:52;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:18;s:9:"namespace";s:26:"Illuminate\Support\Facades";s:18:"declaringClassName";s:36:"Illuminate\Support\Facades\Broadcast";s:21:"implementingClassName";s:36:"Illuminate\Support\Facades\Broadcast";s:16:"currentClassName";s:36:"Illuminate\Support\Facades\Broadcast";s:9:"aliasName";N;}}s:10:"traitsData";a:4:{s:7:"aliases";a:0:{}s:9:"modifiers";a:0:{}s:11:"precedences";a:0:{}s:6:"hashes";a:0:{}}}}

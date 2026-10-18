@@ -1,0 +1,126 @@
+# MedConnect Saudi - local development stack.
+#
+#   docker compose up -d --build          core stack
+#   docker compose --profile storage up -d  + S3-compatible storage emulator
+#
+# Containers read .env through the bind mount; the `environment` block below
+# overrides hostnames so the same .env also works for artisan on the host.
+
+name: medconnect
+
+x-app: &app
+  build:
+    context: .
+    dockerfile: docker/php/Dockerfile
+    target: dev
+  image: medconnect/php:dev
+  volumes:
+    - ./:/var/www/html
+  environment:
+    DB_HOST: postgres
+    DB_PORT: 5432
+    REDIS_HOST: redis
+    REDIS_CLIENT: phpredis
+    REVERB_HOST: reverb
+    MAIL_HOST: mailpit
+    AWS_ENDPOINT: http://s3:9090
+  depends_on:
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  restart: unless-stopped
+
+services:
+  app:
+    <<: *app
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "${APP_PORT:-8000}:80"
+    volumes:
+      - ./public:/var/www/html/public:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+      - reverb
+    restart: unless-stopped
+
+  reverb:
+    <<: *app
+    command: ["php", "artisan", "reverb:start", "--host=0.0.0.0", "--port=8080"]
+    ports:
+      - "8080:8080"
+    healthcheck:
+      disable: true
+
+  horizon:
+    <<: *app
+    command: ["php", "artisan", "horizon"]
+    healthcheck:
+      disable: true
+
+  scheduler:
+    <<: *app
+    command: ["php", "artisan", "schedule:work"]
+    healthcheck:
+      disable: true
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_DATABASE:-medconnect}
+      POSTGRES_USER: ${DB_USERNAME:-medconnect}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      DB_TEST_DATABASE: ${DB_TEST_DATABASE:-medconnect_test}
+    ports:
+      - "127.0.0.1:${FORWARD_DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "127.0.0.1:${FORWARD_REDIS_PORT:-6379}:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  mailpit:
+    image: axllent/mailpit:v1.21
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:${FORWARD_MAILPIT_PORT:-8025}:8025"
+    restart: unless-stopped
+
+  # S3-compatible emulator (development only - no auth, no encryption).
+  s3:
+    profiles: ["storage"]
+    image: adobe/s3mock:5.2.3
+    environment:
+      COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: ${AWS_BUCKET:-medconnect-private}
+      COM_ADOBE_TESTING_S3MOCK_STORE_ROOT: /data
+      COM_ADOBE_TESTING_S3MOCK_STORE_RETAIN_FILES_ON_EXIT: "true"
+    ports:
+      - "127.0.0.1:${FORWARD_S3_PORT:-9090}:9090"
+    volumes:
+      - s3data:/data
+
+volumes:
+  pgdata:
+  redisdata:
+  s3data:

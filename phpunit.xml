@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="BROADCAST_CONNECTION" value="null"/>
+        <env name="CACHE_STORE" value="array"/>
+        <!-- Tests run against real PostgreSQL: exclusion constraints, row locks
+             and JSONB behaviour cannot be reproduced faithfully on SQLite.
+             Host/port/credentials still come from .env (or the container env). -->
+        <env name="DB_CONNECTION" value="pgsql"/>
+        <env name="DB_DATABASE" value="medconnect_test"/>
+        <env name="DB_URL" value=""/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="SMS_DRIVER" value="fake"/>
+        <env name="PUSH_DRIVER" value="fake"/>
+        <env name="VIDEO_DRIVER" value="mock"/>
+        <env name="PAYMENT_DRIVER" value="mock"/>
+        <env name="PAYMENT_WEBHOOK_SECRET" value="test-webhook-secret"/>
+        <env name="PRESCRIPTION_GATEWAY" value="mock"/>
+        <env name="PHARMACY_GATEWAY" value="mock"/>
+        <env name="FILE_SCANNER_DRIVER" value="mock"/>
+        <env name="PRIVATE_FILES_DISK" value="private"/>
+        <env name="OTP_HASH_KEY" value="test-otp-pepper"/>
+        <env name="PAYOUTS_ENABLED" value="false"/>
+        <env name="PULSE_ENABLED" value="false"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="NIGHTWATCH_ENABLED" value="false"/>
+    </php>
+</phpunit>

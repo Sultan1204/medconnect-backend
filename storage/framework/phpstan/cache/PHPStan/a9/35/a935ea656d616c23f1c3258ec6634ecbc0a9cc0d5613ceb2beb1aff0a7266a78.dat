@@ -1,0 +1,54 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.73.0.6-dev-master@e4f5f6c-8.3.32-";s:4:"data";a:17:{s:4:"name";s:11:"addcslashes";s:10:"parameters";a:2:{s:6:"string";a:13:{s:4:"name";s:6:"string";s:7:"default";N;s:4:"type";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:6:"string";s:12:"isIdentifier";b:1;}}s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:0:{}s:9:"startLine";i:59;s:7:"endLine";i:59;s:11:"startColumn";i:26;s:9:"endColumn";i:39;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}s:10:"characters";a:13:{s:4:"name";s:10:"characters";s:7:"default";N;s:4:"type";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:6:"string";s:12:"isIdentifier";b:1;}}s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:0:{}s:9:"startLine";i:59;s:7:"endLine";i:59;s:11:"startColumn";i:42;s:9:"endColumn";i:59;s:14:"parameterIndex";i:1;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:6:"string";s:12:"isIdentifier";b:1;}}s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:23:"JetBrains\PhpStorm\Pure";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:10:"docComment";s:1975:"/**
+ * Quote string with slashes in a C style
+ * @link https://php.net/manual/en/function.addcslashes.php
+ * @param string $string <p>
+ * The string to be escaped.
+ * </p>
+ * @param string $characters <p>
+ * A list of characters to be escaped. If characters contains characters \n, \r etc., they are converted in C-like style,
+ * while other non-alphanumeric characters with ASCII codes lower than 32 and higher than 126 converted to octal representation.
+ * </p>
+ * <p>
+ * When you define a sequence of characters in the characters argument make sure that you know what characters come
+ * between the characters that you set as the start and end of the range.
+ * </p>
+ * <pre>
+ * <?php
+ * echo addcslashes('foo[ ]', 'A..z');
+ * // output:  \f\o\o\[ \]
+ * // All upper and lower-case letters will be escaped
+ * // ... but so will the [\]^_`
+ * ?>
+ * </pre>
+ * <p>
+ * Also, if the first character in a range has a higher ASCII value
+ * than the second character in the range, no range will be
+ * constructed. Only the start, end and period characters will be
+ * escaped. Use the ord function to find the
+ * ASCII value for a character.
+ * </p>
+ * <pre>
+ * <?php
+ * echo addcslashes("zoo['.']", 'z..A');
+ * // output:  \zoo['\.']
+ * ?>
+ * </pre>
+ * <p>
+ * Be careful if you choose to escape characters 0, a, b, f, n, r, t and v.
+ * They will be converted to \0, \a, \b, \f, \n, \r, \t and \v, all of which are predefined escape sequences in C.
+ * Many of these sequences are also defined in other C-derived languages, including PHP, meaning that you may not get
+ * the desired result if you use the output of addcslashes() to generate code in those languages with these characters
+ * defined in characters.
+ * </p>
+ * @return string the escaped string.
+ * <p>
+ * Example usage:
+ * </p>
+ * <code>
+ * <?php
+ * $not_escaped = "PHP isThirty\nYears Old!\tYay to the Elephant!\n";
+ * $escaped = addcslashes($not_escaped, "\0..\37!@\177..\377");
+ * echo $escaped;
+ * ?>
+ * </code>
+ */";s:9:"startLine";i:58;s:7:"endLine";i:61;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:8:"isStatic";b:0;s:9:"namespace";N;s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:11:"addcslashes";s:8:"filename";s:39:"phpstorm-stubs:standard/standard_1.stub";s:13:"extensionName";s:8:"standard";s:9:"aliasName";N;}}}}

@@ -1,0 +1,87 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:83:"v2-56c194566ccf8a39301b31cc14f614e1fd9579911dfca386c569fdbdfe2285b4-8.3.32-6.73.0.6";s:4:"data";a:22:{s:13:"locatedSource";a:2:{s:5:"class";s:60:"PHPStan\BetterReflection\SourceLocator\Located\LocatedSource";s:4:"data";a:2:{s:4:"name";s:33:"PragmaRX\Google2FA\Support\Base32";s:8:"filename";s:103:"C:/Users/Sultan/Desktop/MedProject/backend/vendor/composer/../pragmarx/google2fa/src/Support/Base32.php";}}s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:4:"name";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"shortName";s:6:"Base32";s:11:"isInterface";b:0;s:7:"isTrait";b:1;s:6:"isEnum";b:0;s:12:"isBackedEnum";b:0;s:9:"modifiers";i:0;s:10:"docComment";N;s:10:"attributes";a:0:{}s:9:"startLine";i:10;s:7:"endLine";i:230;s:11:"startColumn";i:1;s:9:"endColumn";i:1;s:15:"parentClassName";N;s:20:"implementsClassNames";a:0:{}s:15:"traitClassNames";a:0:{}s:18:"immediateConstants";a:0:{}s:19:"immediateProperties";a:1:{s:39:"enforceGoogleAuthenticatorCompatibility";a:16:{s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:4:"name";s:39:"enforceGoogleAuthenticatorCompatibility";s:9:"modifiers";i:2;s:4:"type";N;s:7:"default";a:2:{s:4:"code";s:4:"true";s:10:"attributes";a:6:{s:9:"startLine";i:15;s:7:"endLine";i:15;s:13:"startTokenPos";i:45;s:12:"startFilePos";i:444;s:11:"endTokenPos";i:45;s:10:"endFilePos";i:447;}}s:10:"docComment";s:54:"/**
+ * Enforce Google Authenticator compatibility.
+ */";s:10:"attributes";a:0:{}s:9:"startLine";i:15;s:7:"endLine";i:15;s:11:"startColumn";i:5;s:9:"endColumn";i:62;s:10:"isPromoted";b:0;s:21:"declaredAtCompileTime";b:1;s:16:"immediateVirtual";b:0;s:14:"immediateHooks";a:0:{}}}s:16:"immediateMethods";a:11:{s:13:"charCountBits";a:20:{s:4:"name";s:13:"charCountBits";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:25;s:7:"endLine";i:26;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:80:"/**
+ * Calculate char count bits.
+ *
+ * @param string $b32
+ *
+ * @return int
+ */";s:9:"startLine";i:24;s:7:"endLine";i:29;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:23:"generateBase32RandomKey";a:20:{s:4:"name";s:23:"generateBase32RandomKey";s:10:"parameters";a:2:{s:6:"length";a:13:{s:4:"name";s:6:"length";s:7:"default";a:2:{s:4:"code";s:2:"16";s:10:"attributes";a:6:{s:9:"startLine";i:45;s:7:"endLine";i:45;s:13:"startTokenPos";i:94;s:12:"startFilePos";i:1186;s:11:"endTokenPos";i:94;s:10:"endFilePos";i:1187;}}s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:0:{}s:9:"startLine";i:45;s:7:"endLine";i:45;s:11:"startColumn";i:9;s:9:"endColumn";i:20;s:14:"parameterIndex";i:0;s:10:"isOptional";b:1;}s:6:"prefix";a:13:{s:4:"name";s:6:"prefix";s:7:"default";a:2:{s:4:"code";s:2:"''";s:10:"attributes";a:6:{s:9:"startLine";i:47;s:7:"endLine";i:47;s:13:"startTokenPos";i:105;s:12:"startFilePos";i:1239;s:11:"endTokenPos";i:105;s:10:"endFilePos";i:1240;}}s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:46;s:7:"endLine";i:47;s:11:"startColumn";i:9;s:9:"endColumn";i:20;s:14:"parameterIndex";i:1;s:10:"isOptional";b:1;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:380:"/**
+ * Generate a digit secret key in base32 format.
+ *
+ * @param int    $length
+ * @param string $prefix
+ *
+ * @throws \Exception
+ * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+ * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+ * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+ *
+ * @return string
+ */";s:9:"startLine";i:44;s:7:"endLine";i:56;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:1;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:12:"base32Decode";a:20:{s:4:"name";s:12:"base32Decode";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:70;s:7:"endLine";i:71;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:330:"/**
+ * Decodes a base32 string into a binary string.
+ *
+ * @param string $b32
+ *
+ * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+ * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+ * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+ *
+ * @return string
+ */";s:9:"startLine";i:69;s:7:"endLine";i:78;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:1;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:25:"isCharCountNotAPowerOfTwo";a:20:{s:4:"name";s:25:"isCharCountNotAPowerOfTwo";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:88;s:7:"endLine";i:89;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:98:"/**
+ * Check if the string length is power of two.
+ *
+ * @param string $b32
+ *
+ * @return bool
+ */";s:9:"startLine";i:87;s:7:"endLine";i:92;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:12:"strPadBase32";a:20:{s:4:"name";s:12:"strPadBase32";s:10:"parameters";a:2:{s:6:"string";a:13:{s:4:"name";s:6:"string";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:105;s:7:"endLine";i:106;s:11:"startColumn";i:9;s:9:"endColumn";i:15;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}s:6:"length";a:13:{s:4:"name";s:6:"length";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:0:{}s:9:"startLine";i:107;s:7:"endLine";i:107;s:11:"startColumn";i:9;s:9:"endColumn";i:15;s:14:"parameterIndex";i:1;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:147:"/**
+ * Pad string with random base 32 chars.
+ *
+ * @param string $string
+ * @param int    $length
+ *
+ * @throws \Exception
+ *
+ * @return string
+ */";s:9:"startLine";i:104;s:7:"endLine";i:118;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:4;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:8:"toBase32";a:20:{s:4:"name";s:8:"toBase32";s:10:"parameters";a:1:{s:6:"string";a:13:{s:4:"name";s:6:"string";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:128;s:7:"endLine";i:129;s:11:"startColumn";i:9;s:9:"endColumn";i:15;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:86:"/**
+ * Encode a string to Base32.
+ *
+ * @param string $string
+ *
+ * @return string
+ */";s:9:"startLine";i:127;s:7:"endLine";i:134;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:1;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:15:"getRandomNumber";a:20:{s:4:"name";s:15:"getRandomNumber";s:10:"parameters";a:2:{s:4:"from";a:13:{s:4:"name";s:4:"from";s:7:"default";a:2:{s:4:"code";s:1:"0";s:10:"attributes";a:6:{s:9:"startLine";i:146;s:7:"endLine";i:146;s:13:"startTokenPos";i:395;s:12:"startFilePos";i:3379;s:11:"endTokenPos";i:395;s:10:"endFilePos";i:3379;}}s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:0:{}s:9:"startLine";i:146;s:7:"endLine";i:146;s:11:"startColumn";i:40;s:9:"endColumn";i:48;s:14:"parameterIndex";i:0;s:10:"isOptional";b:1;}s:2:"to";a:13:{s:4:"name";s:2:"to";s:7:"default";a:2:{s:4:"code";s:2:"31";s:10:"attributes";a:6:{s:9:"startLine";i:146;s:7:"endLine";i:146;s:13:"startTokenPos";i:402;s:12:"startFilePos";i:3388;s:11:"endTokenPos";i:402;s:10:"endFilePos";i:3389;}}s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:0:{}s:9:"startLine";i:146;s:7:"endLine";i:146;s:11:"startColumn";i:51;s:9:"endColumn";i:58;s:14:"parameterIndex";i:1;s:10:"isOptional";b:1;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:115:"/**
+ * Get a random number.
+ *
+ * @param int $from
+ * @param int $to
+ *
+ * @throws \Exception
+ *
+ * @return int
+ */";s:9:"startLine";i:146;s:7:"endLine";i:149;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:14:"validateSecret";a:20:{s:4:"name";s:14:"validateSecret";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:161;s:7:"endLine";i:162;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:284:"/**
+ * Validate the secret.
+ *
+ * @param string $b32
+ *
+ * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+ * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+ * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+ */";s:9:"startLine";i:160;s:7:"endLine";i:169;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:37:"checkGoogleAuthenticatorCompatibility";a:20:{s:4:"name";s:37:"checkGoogleAuthenticatorCompatibility";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:179;s:7:"endLine";i:180;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:159:"/**
+ * Check if the secret key is compatible with Google Authenticator.
+ *
+ * @param string $b32
+ *
+ * @throws IncompatibleWithGoogleAuthenticatorException
+ */";s:9:"startLine";i:178;s:7:"endLine";i:188;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:23:"checkForValidCharacters";a:20:{s:4:"name";s:23:"checkForValidCharacters";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:198;s:7:"endLine";i:199;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:153:"/**
+ * Check if all secret key characters are valid.
+ *
+ * @param string $b32
+ *
+ * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+ */";s:9:"startLine";i:197;s:7:"endLine";i:207;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}s:16:"checkIsBigEnough";a:20:{s:4:"name";s:16:"checkIsBigEnough";s:10:"parameters";a:1:{s:3:"b32";a:13:{s:4:"name";s:3:"b32";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:18:"SensitiveParameter";s:10:"isRepeated";b:0;s:9:"arguments";a:0:{}}}s:9:"startLine";i:217;s:7:"endLine";i:218;s:11:"startColumn";i:9;s:9:"endColumn";i:12;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:149:"/**
+ * Check if secret key length is big enough.
+ *
+ * @param string $b32
+ *
+ * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+ */";s:9:"startLine";i:216;s:7:"endLine";i:229;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:2;s:9:"namespace";s:26:"PragmaRX\Google2FA\Support";s:18:"declaringClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:21:"implementingClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:16:"currentClassName";s:33:"PragmaRX\Google2FA\Support\Base32";s:9:"aliasName";N;}}s:10:"traitsData";a:4:{s:7:"aliases";a:0:{}s:9:"modifiers";a:0:{}s:11:"precedences";a:0:{}s:6:"hashes";a:0:{}}}}

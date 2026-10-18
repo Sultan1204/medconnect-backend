@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-f5f13d4d9b3ba3828dcc4aeafe00a919cff232897cf1c75018cc653c0e1b5c2c-8.3.32";s:4:"data";a:3:{s:7:"classes";a:1:{s:52:"illuminate\http\exceptions\throttlerequestsexception";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}
