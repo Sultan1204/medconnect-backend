@@ -9,6 +9,7 @@ use App\Modules\Pharmacies\Models\PharmacyBranch;
 use App\Modules\Prescriptions\Enums\PrescriptionStatus;
 use App\Modules\Prescriptions\Models\Prescription;
 use App\Modules\Prescriptions\Services\PrescriptionWorkflow;
+use Illuminate\Testing\TestResponse;
 use Laravel\Sanctum\Sanctum;
 use Tests\Support\PrescriptionFixtures;
 use Tests\TestCase;
@@ -38,7 +39,7 @@ class DispensingTest extends TestCase
         Sanctum::actingAs($this->prescription->patient->user, ['*']);
     }
 
-    private function send(?PharmacyBranch $branch = null): \Illuminate\Testing\TestResponse
+    private function send(?PharmacyBranch $branch = null): TestResponse
     {
         return $this->postJson("/api/v1/prescriptions/{$this->prescription->id}/dispense-requests", ['branch_id' => ($branch ?? $this->branch)->id]);
     }
@@ -51,7 +52,7 @@ class DispensingTest extends TestCase
         return $this->send()->assertCreated()->json('data.id');
     }
 
-    private function moveTo(string $id, string $status, array $extra = []): \Illuminate\Testing\TestResponse
+    private function moveTo(string $id, string $status, array $extra = []): TestResponse
     {
         return $this->postJson("/api/v1/pharmacy/dispense-requests/{$id}/status", ['status' => $status] + $extra);
     }

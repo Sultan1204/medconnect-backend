@@ -9,6 +9,7 @@ use App\Modules\Prescriptions\Enums\PrescriptionStatus;
 use App\Modules\Prescriptions\Models\Prescription;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Testing\TestResponse;
 use Laravel\Sanctum\Sanctum;
 use Tests\Support\PrescriptionFixtures;
 use Tests\TestCase;
@@ -26,7 +27,7 @@ class PrescriptionWorkflowTest extends TestCase
         Sanctum::actingAs($this->consultation->doctor->user, ['*']);
     }
 
-    private function draft(array $items = [], ?Consultation $consultation = null): \Illuminate\Testing\TestResponse
+    private function draft(array $items = [], ?Consultation $consultation = null): TestResponse
     {
         return $this->postJson('/api/v1/prescriptions/drafts', [
             'consultation_id' => ($consultation ?? $this->consultation)->id,

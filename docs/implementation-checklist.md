@@ -2,7 +2,7 @@
 
 Legend: ✅ done & tested · 🟡 partial · ⬜ pending · ⛔ blocked (needs external approval/contract)
 
-_Last updated: 2026-10-18_
+_Last updated: 2026-10-19_
 
 ## Phase 1 — Foundation
 - ✅ Laravel 13 project, PHP 8.3, modular layout (`app/Modules`, `app/Support`)
@@ -28,14 +28,14 @@ _Last updated: 2026-10-18_
 - ✅ New-device sign-in & lockout detection (`SuspiciousActivityDetected` event)
 - ✅ Account self-deactivation
 - ✅ Append-only audit log (DB trigger) with actor, subject, purpose, request id
-- 🟡 Suspicious-activity *notification* to the user — event raised; delivery wired in Phase 8 (Notifications)
+- ✅ Suspicious-activity *notification* to the user — event raised, delivered via Notifications (Phase 8)
 
 ## Phase 3 — Doctors and patients
 - ✅ Patient profiles (identity separate from clinical data), encrypted emergency contact
 - ✅ Dependants + guardian links (admin-verified by default), configurable age of majority
 - ✅ Relationship-based `PatientPolicy` (`view`, `update`, `actFor`)
 - ✅ Immutable, versioned consent records; booking-required consent check
-- ✅ PDPL data-subject requests (submission; admin handling UI in Phase 8)
+- ✅ PDPL data-subject requests (submission; admin handling API in Phase 8)
 - ✅ Doctor profiles, bilingual bios, languages, fees (halalas), unique licence per authority
 - ✅ Credential uploads: server-side MIME check, malware-scan interface, private storage, 5-minute signed links
 - ✅ Verification state machine with immutable decision history; licence change → re-review; scheduled expiry
@@ -90,12 +90,33 @@ _Last updated: 2026-10-18_
 - ⛔ Payout execution — disabled (`PAYOUTS_ENABLED=false`) until provider capabilities and regulatory review are confirmed
 
 ## Phase 7 — Prescriptions & pharmacies
-- ⬜ Drafts, state machine, safety-check interface, events
-- ⬜ Pharmacy onboarding, branches, staff, dispensing workflow
-- ⛔ Real e-prescription issuance (e.g. Wasfaty) and pharmacy system integration — mock only
+- ✅ Prescription drafts, state machine (events, immutable history), safety-check interface (`ClinicalSafetyChecker`), scheduled expiry
+- ✅ Pharmacy onboarding with verification, branches, staff, dispensing workflow and request history
+- ✅ Prescription/dispense status changes notify the patient (Phase 8 notifications)
+- ⛔ Real e-prescription issuance (e.g. Wasfaty), real clinical safety source and pharmacy system integration — mock adapters only
 
 ## Phase 8 — Administration
-- ⬜ Admin APIs, complaints, reviews moderation, notifications, reports
+- ✅ Notifications: in-app feed, SMS/email/push channels with per-user preferences (security category cannot be disabled), retries and outcome-only delivery records, push device registry, appointment reminders (24h/1h), event-driven producers (appointments, payments, prescriptions, dispensing, complaints, data requests)
+- ✅ Reviews: one per completed consultation, review window, moderation queue (contact details always held), reports, doctor rating recalculated under lock
+- ✅ Complaints: intake with relationship check on the subject, handling queue, assignment, priority, internal notes never shown to the complainant, closing requires a resolution, complainant notified
+- ✅ User administration: search (masked contact details), suspend/reactivate with step-up MFA, session revocation, guard rails (not self, admins only by super admin, super admins untouchable)
+- ✅ PDPL data requests: admin handling API under separate `data_requests.manage` permission, step-up MFA, audited; the system never deletes data automatically
+- ✅ Audit log review (filters, cursor pagination; reviewing is itself audited)
+- ✅ Operational reports: overview, appointments per day, financial (captured, refunded, net, commission, payouts); no personal data
+- ✅ Operator settings: allow-listed, bounded, audited, system-tier keys super-admin only
+- ✅ Administrator permission management (super admin, step-up MFA, audited)
+- 🟡 Real SMS gateway, real push provider (FCM/APNs) and email provider — interfaces + log/fake drivers only (⛔ needs contracts/sender-ID registration)
+- 🟡 Settings changes need a worker/scheduler restart to take effect (documented)
 
 ## Phase 9 — Hardening
-- ⬜ Security review, performance review, backup/restore drill, staging deployment guide
+- ✅ Security documentation: [security.md](security.md)
+- ✅ Compliance register: [compliance/requirements-register.md](compliance/requirements-register.md)
+- ✅ Deployment, backup and restore guide: [deployment.md](deployment.md)
+- ✅ OpenAPI regenerated (`docs/api/openapi.json`)
+- ✅ Full automated suite green on PostgreSQL (see README for the latest count)
+- 🟡 Static analysis: PHPStan/Larastan is configured and runs in CI, but was **not executed** while building Phases 7–9 (not installable in the build sandbox) — run `vendor/bin/phpstan analyse` and fix findings before release
+- ⬜ Restore drill — documented, **not performed** (no staging environment)
+- ⬜ Performance review — no load testing done; indexes were designed with the main queries in mind but are unmeasured
+- ⬜ Independent penetration test, threat-model review with legal/clinical owners
+- ⬜ Staging deployment — guide only, nothing provisioned
+- ⛔ Laravel Boost (`laravel/boost`) — could not be installed (package registry unreachable from the build sandbox); `CLAUDE.md` still holds the Boost bootstrap text

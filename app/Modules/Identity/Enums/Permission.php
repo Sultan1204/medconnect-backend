@@ -28,6 +28,16 @@ enum Permission: string
     case AdminsManage = 'admins.manage';
     case IntegrationsManage = 'integrations.manage';
     case SecurityManage = 'security.manage';
+    /** Handle PDPL data-subject requests. Not part of the default admin set: granted explicitly. */
+    case DataRequestsManage = 'data_requests.manage';
+
+    /**
+     * Permissions that only a super administrator may hold or grant.
+     */
+    public function isSuperAdminOnly(): bool
+    {
+        return in_array($this, [self::AdminsManage, self::IntegrationsManage, self::SecurityManage], true);
+    }
 
     /**
      * Default permission set per role. Super administrators receive every permission.

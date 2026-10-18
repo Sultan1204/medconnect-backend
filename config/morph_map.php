@@ -1,5 +1,8 @@
 <?php
 
+use App\Modules\Administration\Models\Complaint;
+use App\Modules\Administration\Models\ComplaintEvent;
+use App\Modules\Administration\Models\PlatformSetting;
 use App\Modules\Audit\Models\AuditLog;
 use App\Modules\Audit\Models\IntegrationEvent;
 use App\Modules\Consultations\Models\Consultation;
@@ -16,6 +19,10 @@ use App\Modules\MedicalRecords\Models\PatientAllergy;
 use App\Modules\MedicalRecords\Models\PatientMedication;
 use App\Modules\Messaging\Models\Message;
 use App\Modules\Messaging\Models\MessageAttachment;
+use App\Modules\Notifications\Models\Notification;
+use App\Modules\Notifications\Models\NotificationDelivery;
+use App\Modules\Notifications\Models\NotificationPreference;
+use App\Modules\Notifications\Models\PushDevice;
 use App\Modules\Patients\Models\Patient;
 use App\Modules\Patients\Models\PatientConsent;
 use App\Modules\Patients\Models\PatientDataRequest;
@@ -31,6 +38,8 @@ use App\Modules\Pharmacies\Models\PharmacyStaff;
 use App\Modules\Prescriptions\Models\Prescription;
 use App\Modules\Prescriptions\Models\PrescriptionEvent;
 use App\Modules\Prescriptions\Models\PrescriptionItem;
+use App\Modules\Reviews\Models\Review;
+use App\Modules\Reviews\Models\ReviewReport;
 use App\Modules\Scheduling\Models\Appointment;
 use App\Modules\Scheduling\Models\AvailabilityRule;
 use App\Modules\Scheduling\Models\AvailabilitySlot;
@@ -102,4 +111,16 @@ return [
     'pharmacy_staff' => PharmacyStaff::class,
     'dispense_request' => DispenseRequest::class,
     'dispense_event' => DispenseEvent::class,
+
+    'notification' => Notification::class,
+    'notification_preference' => NotificationPreference::class,
+    'notification_delivery' => NotificationDelivery::class,
+    'push_device' => PushDevice::class,
+
+    'review' => Review::class,
+    'review_report' => ReviewReport::class,
+
+    'complaint' => Complaint::class,
+    'complaint_event' => ComplaintEvent::class,
+    'platform_setting' => PlatformSetting::class,
 ];

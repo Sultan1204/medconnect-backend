@@ -23,5 +23,8 @@ return [
         'app/Modules/Settlements/routes.php',
         'app/Modules/Prescriptions/routes.php',
         'app/Modules/Pharmacies/routes.php',
+        'app/Modules/Notifications/routes.php',
+        'app/Modules/Reviews/routes.php',
+        'app/Modules/Administration/routes.php',
     ],
 ];

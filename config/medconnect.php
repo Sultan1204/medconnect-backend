@@ -170,6 +170,15 @@ return [
         'allow_simulated_dispensing' => (bool) env('ALLOW_SIMULATED_DISPENSING', true),
     ],
 
+    'reviews' => [
+        // Reviews wait for moderation before becoming public. Reviews that look like
+        // they contain contact details are held for moderation regardless of this flag.
+        'require_moderation' => (bool) env('REVIEWS_REQUIRE_MODERATION', true),
+        // A completed consultation can be reviewed for this many days.
+        'window_days' => 30,
+        'comment_max_length' => 1000,
+    ],
+
     'video' => [
         // Participant credential lifetime; clients request fresh credentials to reconnect.
         'token_ttl_minutes' => 10,

@@ -55,3 +55,20 @@
 | 500 | `server_error` | Unexpected; details are never exposed |
 
 Module-specific codes are added below as modules are implemented.
+
+### Administration, complaints, settings (Phase 8)
+
+| HTTP | Code | Meaning |
+|---|---|---|
+| 403 | `step_up_required` | `X-MFA-Code` header missing/invalid for a high-risk action |
+| 404 | `unknown_setting` | Setting key is not on the editable allow-list |
+| 409 | `complaint_closed` | Complaint already resolved/rejected |
+| 409 | `data_request_closed` | Data request already closed |
+| 409 | `invalid_state_transition` | e.g. suspending a non-active account |
+| 422 | `invalid_subject` | Complaint subject missing or not yours (indistinguishable on purpose) |
+| 422 | `invalid_assignee` | Assignee is inactive or cannot handle complaints |
+| 422 | `resolution_required` | Closing a complaint needs a resolution |
+| 422 | `cannot_modify_self` | Administrators cannot change their own status/permissions |
+| 422 | `invalid_target` | Permissions can only be managed for administrator accounts |
+| 422 | `permission_not_grantable` | Permission is super-administrator only |
+| 422 | `invalid_setting_value` | Wrong type or outside the allowed range |

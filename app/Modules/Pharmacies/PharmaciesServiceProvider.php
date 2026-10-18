@@ -4,6 +4,7 @@ namespace App\Modules\Pharmacies;
 
 use App\Modules\Pharmacies\Contracts\PharmacyGateway;
 use App\Modules\Pharmacies\Enums\DispenseStatus;
+use App\Modules\Pharmacies\Events\DispenseStatusChanged;
 use App\Modules\Pharmacies\Gateways\MockPharmacyGateway;
 use App\Modules\Pharmacies\Models\DispenseEvent;
 use App\Modules\Pharmacies\Models\DispenseRequest;
@@ -40,6 +41,7 @@ class PharmaciesServiceProvider extends ServiceProvider
                         'dispense_request_id' => $request->id, 'from_status' => $from->value,
                         'to_status' => 'cancelled', 'reason' => 'prescription_'.$event->prescription->status->value,
                     ]);
+                    DispenseStatusChanged::dispatch($request, $from, DispenseStatus::Cancelled, null);
                 });
         });
     }

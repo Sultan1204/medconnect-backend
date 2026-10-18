@@ -14,6 +14,9 @@ Schedule::command('consultations:enforce-time-limits')->everyMinute()->withoutOv
 
 Schedule::command('prescriptions:expire')->hourly()->onOneServer();
 
+// 24h / 1h appointment reminders (de-duplicated, so overlapping runs are harmless).
+Schedule::command('notifications:send-reminders')->everyFiveMinutes()->withoutOverlapping()->onOneServer();
+
 Schedule::command('doctors:expire-licenses')->dailyAt('00:15')->timezone('Asia/Riyadh')->onOneServer();
 
 // Expired bearer tokens (keeps the device list accurate).

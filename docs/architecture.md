@@ -53,9 +53,9 @@ through relationships but change data only via the owner's actions/events.
 | **Pharmacies** | pharmacies, branches, staff, dispensing | `pharmacies`, `pharmacy_branches`, `pharmacy_staff`, `dispense_requests`, `dispense_events` |
 | **Payments** | checkout, webhooks, refunds | `payments`, `payment_webhook_events`, `refunds` |
 | **Settlements** | commission ledger, payouts | `settlement_entries`, `payouts` |
-| **Notifications** | SMS/email/push/in-app delivery, preferences | `notifications`, `notification_preferences`, `notification_deliveries` |
+| **Notifications** | SMS/email/push/in-app delivery, preferences | `notifications`, `notification_preferences`, `notification_deliveries`, `push_devices` |
 | **Reviews** | ratings, moderation, reports | `reviews`, `review_reports` |
-| **Administration** | admin APIs, complaints, settings, reports | `complaints`, `platform_settings` |
+| **Administration** | admin APIs, complaints, settings, reports | `complaints`, `complaint_events`, `platform_settings` |
 | **Audit** | append-only audit trail, integration event log | `audit_logs`, `integration_events` |
 
 ### Dependency direction

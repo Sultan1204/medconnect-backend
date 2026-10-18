@@ -8,6 +8,7 @@ use App\Modules\Identity\Models\User;
 use App\Modules\Patients\Services\ConsentService;
 use App\Modules\Pharmacies\Contracts\PharmacyGateway;
 use App\Modules\Pharmacies\Enums\DispenseStatus as Status;
+use App\Modules\Pharmacies\Events\DispenseStatusChanged;
 use App\Modules\Pharmacies\Models\DispenseEvent;
 use App\Modules\Pharmacies\Models\DispenseRequest;
 use App\Modules\Pharmacies\Models\PharmacyBranch;
@@ -153,5 +154,7 @@ class DispenseWorkflow
             'patient_id' => $request->patient_id,
             'purpose' => 'dispensing',
         ]);
+
+        DispenseStatusChanged::dispatch($request, $from, $to, $actor);
     }
 }

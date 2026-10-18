@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\Administration\AdministrationServiceProvider;
 use App\Modules\Consultations\ConsultationsServiceProvider;
 use App\Modules\Doctors\DoctorsServiceProvider;
 use App\Modules\Identity\IdentityServiceProvider;
@@ -30,4 +31,5 @@ return [
     SettlementsServiceProvider::class,
     PrescriptionsServiceProvider::class,
     PharmaciesServiceProvider::class,
+    AdministrationServiceProvider::class,
 ];

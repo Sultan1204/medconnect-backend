@@ -4,7 +4,7 @@ REST API (`/api/v1`) for a telemedicine marketplace connecting patients, license
 doctors and pharmacies in Saudi Arabia. Serves the Vue.js web app and the Flutter
 mobile apps.
 
-> **Status:** under active development — see
+> **Status:** feature-complete against the instruction phases 1–8 (mock integrations); Phase 9 hardening partly open — see
 > [docs/implementation-checklist.md](docs/implementation-checklist.md).
 > Technical implementation is **not** regulatory approval. Every government,
 > payment, prescribing and pharmacy integration runs on a mock adapter until

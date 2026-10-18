@@ -3,11 +3,11 @@
 namespace Tests\Support;
 
 use App\Modules\Consultations\Models\Consultation;
+use App\Modules\Identity\Models\User;
 use App\Modules\Patients\Models\PatientConsent;
 use App\Modules\Pharmacies\Models\Pharmacy;
 use App\Modules\Pharmacies\Models\PharmacyBranch;
 use App\Modules\Pharmacies\Models\PharmacyStaff;
-use App\Modules\Identity\Models\User;
 use App\Modules\Prescriptions\Data\GatewayDecision;
 use App\Modules\Prescriptions\Models\Prescription;
 use App\Modules\Prescriptions\Services\PrescriptionWorkflow;
