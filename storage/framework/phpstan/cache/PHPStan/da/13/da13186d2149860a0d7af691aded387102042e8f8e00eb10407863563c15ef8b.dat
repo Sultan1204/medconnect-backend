@@ -1,1 +1,0 @@
-O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-a274b77f15e8641f457f3f47c1bc55014b1f4afa724e48a2f24d6ec0dfbd10ab-8.3.32";s:4:"data";a:3:{s:7:"classes";a:1:{s:58:"illuminate\database\eloquent\concerns\queriesrelationships";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

@@ -92,7 +92,7 @@ class PlatformSettings
     {
         $definition = $this->definition($key, $actor);
         $value = $this->coerce($definition, $value);
-        $old = PlatformSetting::find($key)?->value ?? (self::$defaults[$key] ?? config($definition['config']));
+        $old = PlatformSetting::find($key)->value ?? (self::$defaults[$key] ?? config($definition['config']));
 
         PlatformSetting::updateOrCreate(['key' => $key], ['value' => $value, 'updated_by_user_id' => $actor->id]);
         $this->refresh();

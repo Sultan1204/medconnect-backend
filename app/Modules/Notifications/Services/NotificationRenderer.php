@@ -5,6 +5,7 @@ namespace App\Modules\Notifications\Services;
 use App\Modules\Notifications\Enums\NotificationType;
 use App\Modules\Notifications\Models\Notification;
 use App\Support\Money\Money;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 
 /**
@@ -57,7 +58,7 @@ class NotificationRenderer
         }
 
         if ($notification->type === NotificationType::ConsultationEmergency) {
-            $replace['numbers'] = collect(config('medconnect.emergency.numbers'))->pluck('number')->implode(' / ');
+            $replace['numbers'] = implode(' / ', Arr::pluck((array) config('medconnect.emergency.numbers'), 'number'));
         }
 
         return $replace;

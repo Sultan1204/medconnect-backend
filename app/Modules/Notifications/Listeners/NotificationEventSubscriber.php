@@ -289,7 +289,7 @@ class NotificationEventSubscriber
     private function safely(callable $handler): void
     {
         try {
-            DB::transaction($handler); // savepoint when nested: a failure cannot poison the caller's transaction
+            DB::transaction(fn () => $handler()); // savepoint when nested: a failure cannot poison the caller's transaction
         } catch (Throwable $e) {
             report($e);
         }

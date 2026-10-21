@@ -184,9 +184,9 @@ class ReviewService
         Doctor::whereKey($doctorId)->lockForUpdate()->first();
 
         $stats = Review::where('doctor_id', $doctorId)->where('status', ReviewStatus::Published->value)
-            ->selectRaw('count(*) as total, avg(rating) as average')->first();
+            ->toBase()->selectRaw('count(*) as total, avg(rating) as average')->first();
 
-        $count = (int) ($stats?->total ?? 0);
+        $count = (int) ($stats->total ?? 0);
 
         Doctor::whereKey($doctorId)->update([
             'rating_count' => $count,

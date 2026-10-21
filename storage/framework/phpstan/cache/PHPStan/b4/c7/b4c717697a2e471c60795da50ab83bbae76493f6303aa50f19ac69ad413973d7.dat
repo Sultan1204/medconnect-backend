@@ -1,1 +1,0 @@
-O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-d636885af0f2c06d244a2dfb9ae754af89694c8e9f099ca94946cf5e37bbf04d-8.3.32";s:4:"data";a:3:{s:7:"classes";a:1:{s:59:"illuminate\foundation\http\middleware\preventrequestforgery";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

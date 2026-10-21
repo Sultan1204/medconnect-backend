@@ -1,1 +1,0 @@
-O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-ec3626d6b00ea9b85f6d0b1675e101d301f70731a4da2d63373032a07f1024c4-8.3.32";s:4:"data";a:3:{s:7:"classes";a:1:{s:67:"symfony\component\httpkernel\exception\toomanyrequestshttpexception";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

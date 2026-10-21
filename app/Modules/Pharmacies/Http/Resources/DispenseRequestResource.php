@@ -51,7 +51,7 @@ class DispenseRequestResource extends JsonResource
                         'quantity' => $i->quantity,
                         'quantity_unit' => $i->quantity_unit,
                         'instructions' => $i->instructions,
-                    ]) : null,
+                    ])->all() : null,
             ]),
             'patient' => $this->whenLoaded('patient', fn () => [
                 'full_name' => $this->patient->full_name,

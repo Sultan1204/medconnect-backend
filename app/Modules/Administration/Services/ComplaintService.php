@@ -133,7 +133,7 @@ class ComplaintService
             $this->audit->record('complaints.handled', $locked, [
                 'actor' => $handler,
                 'patient_id' => $locked->patient_id,
-                'changes' => ['fields' => array_values(array_keys(array_diff_key($changes, ['note' => 1, 'resolution' => 1]))), 'status' => $locked->status->value],
+                'changes' => ['fields' => array_keys(array_diff_key($changes, ['note' => 1, 'resolution' => 1])), 'status' => $locked->status->value],
             ]);
 
             if ($target !== $from) {

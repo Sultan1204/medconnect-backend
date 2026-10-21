@@ -65,18 +65,18 @@ class AdministratorController extends Controller
             throw ApiException::make('invalid_target', 'Permissions can only be managed for administrator accounts.');
         }
 
-        $requested = collect($data['permissions'])->unique()->values();
+        $requested = array_values(array_unique($data['permissions']));
 
-        if ($requested->contains(fn (string $p) => Permission::from($p)->isSuperAdminOnly())) {
+        if (array_filter($requested, fn (string $p) => Permission::from($p)->isSuperAdminOnly()) !== []) {
             throw ApiException::make('permission_not_grantable', 'Some permissions can only be held by super administrators.');
         }
 
-        $before = $user->getDirectPermissions()->pluck('name');
-        $user->syncPermissions($requested->all());
+        $before = $user->getDirectPermissions()->pluck('name')->all();
+        $user->syncPermissions($requested);
         // The target's tokens keep working; permissions are checked on each request.
 
         $this->audit->record('admins.permissions_changed', $user, ['changes' => [
-            'added' => $requested->diff($before)->values(), 'removed' => $before->diff($requested)->values(),
+            'added' => array_values(array_diff($requested, $before)), 'removed' => array_values(array_diff($before, $requested)),
         ]]);
 
         return response()->json(['data' => $this->present($user->refresh()->load(['roles', 'permissions']))]);
