@@ -801,7 +801,11 @@
                                                         ]
                                                     },
                                                     "changes": {
-                                                        "type": "string"
+                                                        "type": [
+                                                            "array",
+                                                            "null"
+                                                        ],
+                                                        "items": {}
                                                     },
                                                     "metadata": {
                                                         "type": [
