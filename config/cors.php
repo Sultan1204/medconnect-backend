@@ -15,7 +15,7 @@ return [
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['Authorization', 'Content-Type', 'Accept', 'Accept-Language', 'X-Request-Id', 'Idempotency-Key'],
+    'allowed_headers' => ['Authorization', 'Content-Type', 'Accept', 'Accept-Language', 'X-Request-Id', 'Idempotency-Key', 'X-MFA-Code'],
 
     'exposed_headers' => ['X-Request-Id', 'Retry-After', 'X-RateLimit-Limit', 'X-RateLimit-Remaining'],
 
