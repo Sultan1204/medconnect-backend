@@ -1,0 +1,52 @@
+# Render Blueprint - TEMPORARY tester deployment of the MedConnect backend.
+# Uses APP_ENV=staging because the log SMS provider (OTP codes in logs) refuses to run in production.
+# Delete the services when testing is over. Demo accounts have a publicly known password.
+databases:
+  - name: medconnect-db
+    plan: free
+    databaseName: medconnect
+    user: medconnect
+
+services:
+  - type: web
+    name: medconnect-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /up
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: APP_NAME
+        value: MedConnect Saudi
+      - key: APP_ENV
+        value: staging
+      - key: APP_DEBUG
+        value: "false"
+      # APP_KEY is generated at start-up if not set (fine for a throwaway demo; set your own to keep it stable).
+      - key: MAIL_MAILER
+        value: log
+      - key: APP_URL
+        sync: false           # e.g. https://medconnect-backend.onrender.com
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        fromDatabase:
+          name: medconnect-db
+          property: connectionString
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: SESSION_DRIVER
+        value: database
+      - key: BROADCAST_CONNECTION
+        value: "null"
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: SMS_DRIVER
+        value: log
+      - key: SEED_DEMO_DATA
+        value: "true"
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false           # the frontend URL, e.g. https://medconnect-frontend.onrender.com
