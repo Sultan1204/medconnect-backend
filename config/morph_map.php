@@ -2,6 +2,7 @@
 
 use App\Modules\Administration\Models\Complaint;
 use App\Modules\Administration\Models\ComplaintEvent;
+use App\Modules\Administration\Models\ContactMessage;
 use App\Modules\Administration\Models\PlatformSetting;
 use App\Modules\Audit\Models\AuditLog;
 use App\Modules\Audit\Models\IntegrationEvent;
@@ -123,4 +124,5 @@ return [
     'complaint' => Complaint::class,
     'complaint_event' => ComplaintEvent::class,
     'platform_setting' => PlatformSetting::class,
+    'contact_message' => ContactMessage::class,
 ];

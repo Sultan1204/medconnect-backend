@@ -5,6 +5,7 @@ namespace Tests\Feature\Specialties;
 use App\Modules\Identity\Enums\RoleName;
 use App\Modules\Specialties\Models\Specialty;
 use Database\Seeders\SpecialtySeeder;
+use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 
 class SpecialtyTest extends TestCase
@@ -16,6 +17,17 @@ class SpecialtyTest extends TestCase
 
         $response = $this->getJson('/api/v1/specialties')->assertOk()->assertJsonCount(10, 'data');
         $this->assertNotContains('hidden', array_column($response->json('data'), 'slug'));
+    }
+
+    public function test_cached_list_survives_a_serializing_cache_store(): void
+    {
+        // Redis/file stores serialize values; the array store only does with this flag.
+        config(['cache.stores.array.serialize' => true]);
+        Cache::forgetDriver('array');
+        Specialty::factory()->create(['name_en' => 'Cardiology', 'name_ar' => 'القلب', 'is_active' => true]);
+
+        $this->getJson('/api/v1/specialties')->assertOk();
+        $this->getJson('/api/v1/specialties', ['Accept-Language' => 'ar'])->assertOk()->assertJsonFragment(['name' => 'القلب']);
     }
 
     public function test_names_are_localized_by_accept_language(): void

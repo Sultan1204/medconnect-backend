@@ -28,3 +28,4 @@ Thumbs.db
 
 # PHPStan result cache
 /storage/framework/phpstan/
+dump.rdb

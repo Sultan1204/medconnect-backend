@@ -26,9 +26,16 @@ class SpecialtyController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $specialties = Cache::remember(self::CACHE_KEY, 3600, fn () => Specialty::active()->orderBy('sort_order')->orderBy('name_en')->get());
+        // Cache plain attribute arrays, not models: the cache does not unserialize
+        // application classes (cache.serializable_classes = false), so a cached Eloquent
+        // collection would come back as an unusable object on every hit.
+        $rows = Cache::remember(
+            self::CACHE_KEY,
+            3600,
+            fn () => Specialty::active()->orderBy('sort_order')->orderBy('name_en')->get()->map(fn (Specialty $s) => $s->getAttributes())->all(),
+        );
 
-        return SpecialtyResource::collection($specialties);
+        return SpecialtyResource::collection(Specialty::hydrate($rows));
     }
 
     /**

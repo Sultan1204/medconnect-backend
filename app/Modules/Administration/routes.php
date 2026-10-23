@@ -3,14 +3,19 @@
 use App\Modules\Administration\Http\Controllers\Admin\AdministratorController;
 use App\Modules\Administration\Http\Controllers\Admin\AuditLogController;
 use App\Modules\Administration\Http\Controllers\Admin\ComplaintAdminController;
+use App\Modules\Administration\Http\Controllers\Admin\ContactMessageAdminController;
 use App\Modules\Administration\Http\Controllers\Admin\DataRequestAdminController;
 use App\Modules\Administration\Http\Controllers\Admin\ReportController;
 use App\Modules\Administration\Http\Controllers\Admin\SettingsController;
 use App\Modules\Administration\Http\Controllers\Admin\UserAdminController;
 use App\Modules\Administration\Http\Controllers\ComplaintController;
+use App\Modules\Administration\Http\Controllers\ContactController;
 use App\Modules\Identity\Enums\Permission;
 use App\Modules\Identity\Enums\RoleName;
 use Illuminate\Support\Facades\Route;
+
+// Public contact form (no sign-in); throttled per client address.
+Route::post('contact', [ContactController::class, 'store'])->middleware('throttle:5,1');
 
 Route::middleware(['auth:sanctum', 'account.active', 'token.full'])->group(function () {
     Route::middleware('role:'.implode('|', [RoleName::Patient->value, RoleName::Doctor->value, RoleName::PharmacyStaff->value]))->group(function () {
@@ -24,6 +29,8 @@ Route::middleware(['auth:sanctum', 'account.active', 'token.full'])->group(funct
             Route::get('complaints', [ComplaintAdminController::class, 'index']);
             Route::get('complaints/{complaint}', [ComplaintAdminController::class, 'show'])->whereUuid('complaint');
             Route::patch('complaints/{complaint}', [ComplaintAdminController::class, 'update'])->whereUuid('complaint');
+            Route::get('contact-messages', [ContactMessageAdminController::class, 'index']);
+            Route::post('contact-messages/{message}/handle', [ContactMessageAdminController::class, 'handle'])->whereUuid('message');
         });
 
         Route::middleware('permission:'.Permission::UsersView->value)->group(function () {
