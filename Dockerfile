@@ -24,7 +24,17 @@ COPY docker/render/nginx.conf /etc/nginx/http.d/default.conf
 COPY docker/render/supervisord.conf /etc/supervisord.conf
 COPY docker/render/start.sh /usr/local/bin/start.sh
 
-ENV TZ=UTC
+ENV TZ=UTC \
+    DB_CONNECTION=pgsql \
+    CACHE_STORE=database \
+    QUEUE_CONNECTION=database \
+    SESSION_DRIVER=database \
+    BROADCAST_CONNECTION=null \
+    LOG_CHANNEL=stderr \
+    SMS_DRIVER=log \
+    MAIL_MAILER=log \
+    APP_ENV=staging \
+    APP_DEBUG=false
 WORKDIR /var/www/html
 
 COPY composer.json composer.lock ./
