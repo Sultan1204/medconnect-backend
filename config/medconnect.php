@@ -37,6 +37,10 @@ return [
         'mfa_recovery_codes' => 8,
     ],
 
+    // Demo/testing only: a fixed 6-digit code accepted for OTP and authenticator checks.
+    // Ignored in production, even if set.
+    'demo_fixed_code' => env('APP_ENV') === 'production' ? null : env('DEMO_FIXED_CODE'),
+
     'otp' => [
         'length' => 6,
         'ttl_seconds' => (int) env('OTP_TTL_SECONDS', 300),

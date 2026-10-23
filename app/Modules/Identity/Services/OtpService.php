@@ -103,7 +103,11 @@ class OtpService
                 return null;
             }
 
-            if (! hash_equals($otp->code_hash, $this->codeHash($purpose, $destinationHash, $code))) {
+            $fixed = config('medconnect.demo_fixed_code');
+            $matches = (is_string($fixed) && $fixed !== '' && hash_equals($fixed, $code))
+                || hash_equals($otp->code_hash, $this->codeHash($purpose, $destinationHash, $code));
+
+            if (! $matches) {
                 $otp->increment('attempts');
 
                 return null;

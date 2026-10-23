@@ -62,6 +62,16 @@ class RegistrationTest extends TestCase
             ->assertJsonPath('data.phone', '+966512345678');
     }
 
+    public function test_demo_fixed_code_is_accepted_only_when_configured(): void
+    {
+        $this->postJson('/api/v1/auth/register', $this->payload())->assertStatus(202);
+
+        $this->assertErrorCode($this->postJson('/api/v1/auth/verify-otp', ['phone' => '+966512345678', 'code' => '123456']), 422, 'invalid_otp');
+
+        config(['medconnect.demo_fixed_code' => '123456']);
+        $this->postJson('/api/v1/auth/verify-otp', ['phone' => '+966512345678', 'code' => '123456'])->assertOk();
+    }
+
     public function test_wrong_code_is_rejected_and_attempts_are_limited(): void
     {
         $this->postJson('/api/v1/auth/register', $this->payload())->assertStatus(202);
