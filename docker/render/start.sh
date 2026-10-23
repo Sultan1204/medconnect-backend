@@ -4,6 +4,7 @@ cd /var/www/html
 if [ -z "$APP_KEY" ]; then export APP_KEY="base64:$(head -c 32 /dev/urandom | base64)"; fi
 # Render injects PORT; nginx.conf listens on 8080 (Render's default is 10000, so set PORT=8080 in the service).
 # config:cache is skipped: config/scramble.php holds objects and cannot be serialized.
+if [ "${RESET_DATABASE:-false}" = "true" ]; then php artisan migrate:fresh --force; fi
 php artisan migrate --force
 # Reference data (roles, specialties) is idempotent; demo accounts are seeded only into an empty database.
 php artisan db:seed --class=Database\\Seeders\\RolesAndPermissionsSeeder --force
