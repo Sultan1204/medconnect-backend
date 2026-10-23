@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1.7
 #
 # MedConnect Saudi - single-container image for temporary hosted demos (Render etc.).
+# Dev dependencies stay installed because the demo seeder uses model factories (fakerphp).
 # nginx + php-fpm + queue worker + scheduler under supervisord.
 # For real production use the split images in docker/php (see docs/deployment.md).
 ARG PHP_VERSION=8.3
@@ -38,9 +39,9 @@ ENV TZ=UTC \
 WORKDIR /var/www/html
 
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist --no-interaction
+RUN composer install --no-scripts --no-autoloader --prefer-dist --no-interaction
 COPY . .
-RUN composer dump-autoload --optimize --classmap-authoritative --no-dev \
+RUN composer dump-autoload --optimize \
     && rm -f .env \
     && chmod +x /usr/local/bin/start.sh \
     && mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache \
